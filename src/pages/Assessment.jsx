@@ -96,7 +96,7 @@ export default function Assessment() {
     <div className="space-y-6">
       {/* Dashboard */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-600">
+        <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-600 hover:shadow-xl transition-shadow">
           <div className="text-xs text-gray-500 mb-2 font-semibold uppercase tracking-wide">Overall Maturity Score</div>
           <div className="text-4xl font-bold text-gray-900">{overallScore.toFixed(2)} <span className="text-xl text-gray-500">/ 3.00</span></div>
           <div className="mt-3 text-sm text-gray-600">
@@ -104,7 +104,7 @@ export default function Assessment() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-green-600">
+        <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-600 hover:shadow-xl transition-shadow">
           <div className="text-xs text-gray-500 mb-2 font-semibold uppercase tracking-wide">Assessment Progress</div>
           <div className="text-4xl font-bold text-gray-900">{completionPercentage}<span className="text-xl text-gray-500">%</span></div>
           <div className="mt-3 text-sm text-gray-600">
@@ -112,7 +112,7 @@ export default function Assessment() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-gray-400">
+        <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-600 hover:shadow-xl transition-shadow">
           <div className="mb-4">
             <label className="block text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2">
               Target Maturity Level
@@ -143,7 +143,7 @@ export default function Assessment() {
       </div>
 
       {/* Framework Selection Tabs */}
-      <div className="bg-white rounded-lg shadow-md p-5">
+      <div className="bg-white rounded-xl shadow-lg p-6">
         <div className="flex gap-3 flex-wrap">
           <button
             onClick={() => setActiveFramework('csf')}
@@ -185,7 +185,7 @@ export default function Assessment() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* CSF Radar */}
         {(activeFramework === 'csf' || activeFramework === 'both') && (
-          <div className="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-600">
+          <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-600">
             <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-gray-900">
               <div className="p-2 bg-blue-100 rounded-lg">
                 <Shield className="w-6 h-6 text-blue-600" />
@@ -194,13 +194,13 @@ export default function Assessment() {
             </h3>
             <ResponsiveContainer width="100%" height={400}>
               <RadarChart data={csfRadarData} key={JSON.stringify(csfRadarData)}>
-                <PolarGrid stroke="#e5e7eb" />
-                <PolarAngleAxis dataKey="function" tick={{ fontSize: 12, fill: '#374151' }} />
+                <PolarGrid stroke="#cbd5e1" strokeWidth={1.5} />
+                <PolarAngleAxis dataKey="function" tick={{ fontSize: 12, fill: '#374151', fontWeight: 600 }} />
                 <PolarRadiusAxis angle={90} domain={[0, 3]} tick={{ fontSize: 11, fill: '#6b7280' }} />
-                <Radar name="Target Level" dataKey="target" stroke="#94a3b8" fill="#cbd5e1" fillOpacity={0.2} strokeWidth={2} strokeDasharray="5 5" />
-                <Radar name="Current Score" dataKey="score" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.7} strokeWidth={3} />
-                <Legend wrapperStyle={{ fontSize: '13px' }} />
-                <Tooltip contentStyle={{ fontSize: '13px', backgroundColor: 'white', border: '1px solid #e5e7eb' }} />
+                <Radar name="Target Level" dataKey="target" stroke="#94a3b8" fill="#cbd5e1" fillOpacity={0.15} strokeWidth={2} strokeDasharray="5 5" />
+                <Radar name="Current Score" dataKey="score" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.25} strokeWidth={3} />
+                <Legend wrapperStyle={{ fontSize: '13px', fontWeight: 500 }} />
+                <Tooltip contentStyle={{ fontSize: '13px', backgroundColor: 'white', border: '2px solid #e5e7eb', borderRadius: '8px', padding: '8px' }} />
               </RadarChart>
             </ResponsiveContainer>
           </div>
@@ -208,7 +208,7 @@ export default function Assessment() {
 
         {/* Privacy Radar */}
         {(activeFramework === 'privacy' || activeFramework === 'both') && (
-          <div className="bg-white rounded-lg shadow-md p-6 border-t-4 border-purple-600">
+          <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-600">
             <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-gray-900">
               <div className="p-2 bg-purple-100 rounded-lg">
                 <Lock className="w-6 h-6 text-purple-600" />
@@ -217,13 +217,13 @@ export default function Assessment() {
             </h3>
             <ResponsiveContainer width="100%" height={400}>
               <RadarChart data={privacyRadarData} key={JSON.stringify(privacyRadarData)}>
-                <PolarGrid stroke="#e5e7eb" />
-                <PolarAngleAxis dataKey="function" tick={{ fontSize: 12, fill: '#374151' }} />
+                <PolarGrid stroke="#cbd5e1" strokeWidth={1.5} />
+                <PolarAngleAxis dataKey="function" tick={{ fontSize: 12, fill: '#374151', fontWeight: 600 }} />
                 <PolarRadiusAxis angle={90} domain={[0, 3]} tick={{ fontSize: 11, fill: '#6b7280' }} />
-                <Radar name="Target Level" dataKey="target" stroke="#94a3b8" fill="#cbd5e1" fillOpacity={0.2} strokeWidth={2} strokeDasharray="5 5" />
-                <Radar name="Current Score" dataKey="score" stroke="#7c3aed" fill="#9333ea" fillOpacity={0.7} strokeWidth={3} />
-                <Legend wrapperStyle={{ fontSize: '13px' }} />
-                <Tooltip contentStyle={{ fontSize: '13px', backgroundColor: 'white', border: '1px solid #e5e7eb' }} />
+                <Radar name="Target Level" dataKey="target" stroke="#94a3b8" fill="#cbd5e1" fillOpacity={0.15} strokeWidth={2} strokeDasharray="5 5" />
+                <Radar name="Current Score" dataKey="score" stroke="#7c3aed" fill="#9333ea" fillOpacity={0.25} strokeWidth={3} />
+                <Legend wrapperStyle={{ fontSize: '13px', fontWeight: 500 }} />
+                <Tooltip contentStyle={{ fontSize: '13px', backgroundColor: 'white', border: '2px solid #e5e7eb', borderRadius: '8px', padding: '8px' }} />
               </RadarChart>
             </ResponsiveContainer>
           </div>
@@ -232,7 +232,7 @@ export default function Assessment() {
 
       {/* Combined Total Score Chart */}
       {activeFramework === 'both' && (
-        <div className="bg-white rounded-lg shadow-md p-6 border-t-4 border-green-600">
+        <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-600">
           <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-gray-900">
             <div className="p-2 bg-green-100 rounded-lg">
               <BarChart3 className="w-6 h-6 text-green-600" />
@@ -241,12 +241,12 @@ export default function Assessment() {
           </h3>
           <ResponsiveContainer width="100%" height={350}>
             <RadarChart data={combinedRadarData} key={JSON.stringify(combinedRadarData)}>
-              <PolarGrid stroke="#e5e7eb" />
-              <PolarAngleAxis dataKey="framework" tick={{ fontSize: 12, fill: '#374151' }} />
+              <PolarGrid stroke="#cbd5e1" strokeWidth={1.5} />
+              <PolarAngleAxis dataKey="framework" tick={{ fontSize: 12, fill: '#374151', fontWeight: 600 }} />
               <PolarRadiusAxis angle={90} domain={[0, 3]} tick={{ fontSize: 11, fill: '#6b7280' }} />
-              <Radar name="Overall Score" dataKey="score" stroke="#059669" fill="#10b981" fillOpacity={0.5} strokeWidth={2} />
-              <Legend wrapperStyle={{ fontSize: '13px' }} />
-              <Tooltip contentStyle={{ fontSize: '13px', backgroundColor: 'white', border: '1px solid #e5e7eb' }} />
+              <Radar name="Overall Score" dataKey="score" stroke="#059669" fill="#10b981" fillOpacity={0.25} strokeWidth={3} />
+              <Legend wrapperStyle={{ fontSize: '13px', fontWeight: 500 }} />
+              <Tooltip contentStyle={{ fontSize: '13px', backgroundColor: 'white', border: '2px solid #e5e7eb', borderRadius: '8px', padding: '8px' }} />
             </RadarChart>
           </ResponsiveContainer>
         </div>
@@ -254,7 +254,7 @@ export default function Assessment() {
 
       {/* Assessment Form - CSF */}
       {(activeFramework === 'csf' || activeFramework === 'both') && (
-        <div className="bg-white rounded-lg shadow-md p-5 border-t-4 border-blue-600">
+        <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-600">
           <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-blue-900">
             <Shield className="w-5 h-5 text-blue-600" />
             Rate CSF 2.0 Subcategories
@@ -303,7 +303,7 @@ export default function Assessment() {
 
       {/* Assessment Form - Privacy */}
       {(activeFramework === 'privacy' || activeFramework === 'both') && (
-        <div className="bg-white rounded-lg shadow-md p-5 border-t-4 border-purple-600">
+        <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-600">
           <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-purple-900">
             <Lock className="w-5 h-5 text-purple-600" />
             Rate Privacy Framework Subcategories
@@ -351,7 +351,7 @@ export default function Assessment() {
       )}
 
       {/* Legend */}
-      <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-gray-400">
+      <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-gray-400">
         <h3 className="text-sm font-bold mb-4 text-gray-900">Maturity Level Guide</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {MATURITY_LEVELS.map((level) => (

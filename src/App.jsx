@@ -23,9 +23,9 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-blue-900 shadow-md">
+      <header className="bg-gradient-to-r from-blue-900 to-blue-700 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
             <Shield className="w-8 h-8 text-white" />
@@ -38,7 +38,7 @@ function App() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-gray-100 border-b border-gray-300 sticky top-0 z-10">
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex space-x-2">
             {navigation.map((item) => {
@@ -48,10 +48,10 @@ function App() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-3 transition-colors ${
+                  className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-3 transition-all ${
                     active
-                      ? 'border-blue-600 text-blue-700 bg-white'
-                      : 'border-transparent text-gray-700 hover:text-gray-900 hover:bg-gray-200'
+                      ? 'border-blue-600 text-blue-700 bg-blue-50'
+                      : 'border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
