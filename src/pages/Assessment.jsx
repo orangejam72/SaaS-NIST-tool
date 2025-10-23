@@ -270,7 +270,7 @@ export default function Assessment() {
                       {cat.subcategories.map((sub) => (
                         <div key={sub.subKey} className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-all">
                           <div className="flex-1">
-                            <div className="font-semibold text-sm text-gray-900 tracking-tight">{sub.subKey}</div>
+                            <div className="font-semibold text-xs text-gray-900 tracking-tight">{sub.subKey}</div>
                             <div className="text-xs text-gray-600 mt-1 leading-tight">{sub.description}</div>
                           </div>
                           <div className="flex gap-1.5 flex-shrink-0">
@@ -319,7 +319,7 @@ export default function Assessment() {
                       {cat.subcategories.map((sub) => (
                         <div key={sub.subKey} className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-all">
                           <div className="flex-1">
-                            <div className="font-semibold text-sm text-gray-900 tracking-tight">{sub.subKey}</div>
+                            <div className="font-semibold text-xs text-gray-900 tracking-tight">{sub.subKey}</div>
                             <div className="text-xs text-gray-600 mt-1 leading-tight">{sub.description}</div>
                           </div>
                           <div className="flex gap-1.5 flex-shrink-0">

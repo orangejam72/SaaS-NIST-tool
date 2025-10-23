@@ -38,11 +38,11 @@ export default function Reference() {
             >
               <div className="flex items-center gap-3">
                 <div className={`p-2 ${colors.icon} rounded-lg`}>
-                  <Shield className="w-6 h-6" />
+                  <Shield className="w-5 h-5" />
                 </div>
                 <div className="text-left">
-                  <span className={`font-bold text-base ${colors.text}`}>{func.funcKey}</span>
-                  <p className="text-sm text-gray-700 mt-1">{func.funcName}</p>
+                  <span className={`font-bold text-sm ${colors.text}`}>{func.funcKey}</span>
+                  <p className="text-xs text-gray-700 mt-1">{func.funcName}</p>
                 </div>
               </div>
               {expandedFunctions[func.funcKey] ? (
@@ -61,8 +61,8 @@ export default function Reference() {
                       className={`w-full text-left py-2 flex items-center justify-between hover:${colors.bg} rounded px-2 transition-colors`}
                     >
                       <div className="flex-1">
-                        <span className={`font-semibold text-sm ${colors.text}`}>{cat.catKey}</span>
-                        <span className="text-sm text-gray-800 ml-2">{cat.catName}</span>
+                        <span className={`font-semibold text-xs ${colors.text}`}>{cat.catKey}</span>
+                        <span className="text-xs text-gray-800 ml-2">{cat.catName}</span>
                       </div>
                       {expandedCategories[cat.catKey] ? (
                         <ChevronDown className={`w-4 h-4 ${colors.text} flex-shrink-0`} />
@@ -75,10 +75,10 @@ export default function Reference() {
                       <div className="mt-3 space-y-2">
                         {cat.subcategories.map((sub) => (
                           <div key={sub.subKey} className="bg-gray-50 rounded-lg p-3 border border-gray-200">
-                            <div className="font-semibold text-sm text-gray-900 mb-1">
+                            <div className="font-semibold text-xs text-gray-900 mb-1">
                               {sub.subKey}
                             </div>
-                            <p className="text-sm text-gray-700 mb-2 leading-relaxed">{sub.description}</p>
+                            <p className="text-xs text-gray-700 mb-2 leading-relaxed">{sub.description}</p>
 
                             {sub.examples && sub.examples.length > 0 && (
                               <div className="mb-2 bg-white rounded p-2.5 border border-gray-100">
