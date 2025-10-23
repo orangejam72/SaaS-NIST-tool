@@ -4,10 +4,10 @@ import { BarChart3, Save, Download, Shield, Lock } from 'lucide-react';
 import { FULL_CSF_REFERENCE, PRIVACY_FRAMEWORK } from '../data/csfData';
 
 const MATURITY_LEVELS = [
-  { value: 0, label: 'Not Implemented', color: '#EF4444' },
-  { value: 1, label: 'Partially Implemented', color: '#F59E0B' },
-  { value: 2, label: 'Largely Implemented', color: '#10B981' },
-  { value: 3, label: 'Fully Implemented', color: '#3B82F6' },
+  { value: 0, label: 'Not Implemented', color: '#EF4444', pastel: '#FCA5A5' },
+  { value: 1, label: 'Partially Implemented', color: '#F59E0B', pastel: '#FCD34D' },
+  { value: 2, label: 'Largely Implemented', color: '#10B981', pastel: '#6EE7B7' },
+  { value: 3, label: 'Fully Implemented', color: '#3B82F6', pastel: '#93C5FD' },
 ];
 
 export default function Assessment() {
@@ -197,8 +197,8 @@ export default function Assessment() {
                 <PolarGrid stroke="#cbd5e1" strokeWidth={1.5} />
                 <PolarAngleAxis dataKey="function" tick={{ fontSize: 12, fill: '#374151', fontWeight: 600 }} />
                 <PolarRadiusAxis angle={90} domain={[0, 3]} tick={{ fontSize: 11, fill: '#6b7280' }} />
-                <Radar name="Target Level" dataKey="target" stroke="#94a3b8" fill="#cbd5e1" fillOpacity={0.15} strokeWidth={2} strokeDasharray="5 5" />
-                <Radar name="Current Score" dataKey="score" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.25} strokeWidth={3} />
+                <Radar name="Target Level" dataKey="target" stroke="#9CA3AF" fill="#E5E7EB" fillOpacity={0.3} strokeWidth={2} strokeDasharray="5 5" />
+                <Radar name="Current Score" dataKey="score" stroke="#60A5FA" fill="#93C5FD" fillOpacity={0.4} strokeWidth={3} />
                 <Legend wrapperStyle={{ fontSize: '13px', fontWeight: 500 }} />
                 <Tooltip contentStyle={{ fontSize: '13px', backgroundColor: 'white', border: '2px solid #e5e7eb', borderRadius: '8px', padding: '8px' }} />
               </RadarChart>
@@ -220,8 +220,8 @@ export default function Assessment() {
                 <PolarGrid stroke="#cbd5e1" strokeWidth={1.5} />
                 <PolarAngleAxis dataKey="function" tick={{ fontSize: 12, fill: '#374151', fontWeight: 600 }} />
                 <PolarRadiusAxis angle={90} domain={[0, 3]} tick={{ fontSize: 11, fill: '#6b7280' }} />
-                <Radar name="Target Level" dataKey="target" stroke="#94a3b8" fill="#cbd5e1" fillOpacity={0.15} strokeWidth={2} strokeDasharray="5 5" />
-                <Radar name="Current Score" dataKey="score" stroke="#7c3aed" fill="#9333ea" fillOpacity={0.25} strokeWidth={3} />
+                <Radar name="Target Level" dataKey="target" stroke="#9CA3AF" fill="#E5E7EB" fillOpacity={0.3} strokeWidth={2} strokeDasharray="5 5" />
+                <Radar name="Current Score" dataKey="score" stroke="#A78BFA" fill="#C4B5FD" fillOpacity={0.4} strokeWidth={3} />
                 <Legend wrapperStyle={{ fontSize: '13px', fontWeight: 500 }} />
                 <Tooltip contentStyle={{ fontSize: '13px', backgroundColor: 'white', border: '2px solid #e5e7eb', borderRadius: '8px', padding: '8px' }} />
               </RadarChart>
@@ -244,7 +244,7 @@ export default function Assessment() {
               <PolarGrid stroke="#cbd5e1" strokeWidth={1.5} />
               <PolarAngleAxis dataKey="framework" tick={{ fontSize: 12, fill: '#374151', fontWeight: 600 }} />
               <PolarRadiusAxis angle={90} domain={[0, 3]} tick={{ fontSize: 11, fill: '#6b7280' }} />
-              <Radar name="Overall Score" dataKey="score" stroke="#059669" fill="#10b981" fillOpacity={0.25} strokeWidth={3} />
+              <Radar name="Overall Score" dataKey="score" stroke="#34D399" fill="#6EE7B7" fillOpacity={0.4} strokeWidth={3} />
               <Legend wrapperStyle={{ fontSize: '13px', fontWeight: 500 }} />
               <Tooltip contentStyle={{ fontSize: '13px', backgroundColor: 'white', border: '2px solid #e5e7eb', borderRadius: '8px', padding: '8px' }} />
             </RadarChart>
@@ -268,20 +268,20 @@ export default function Assessment() {
                     <h5 className="font-semibold text-xs text-gray-800 mb-2">{cat.catKey} - {cat.catName}</h5>
                     <div className="space-y-2">
                       {cat.subcategories.map((sub) => (
-                        <div key={sub.subKey} className="flex items-start gap-3 p-3 bg-gray-50 rounded border border-gray-200">
+                        <div key={sub.subKey} className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-all">
                           <div className="flex-1">
-                            <div className="font-medium text-sm text-gray-900">{sub.subKey}</div>
-                            <div className="text-xs text-gray-600 mt-1">{sub.description}</div>
+                            <div className="font-semibold text-sm text-gray-900 tracking-tight">{sub.subKey}</div>
+                            <div className="text-xs text-gray-600 mt-1 leading-tight">{sub.description}</div>
                           </div>
-                          <div className="flex gap-1 flex-shrink-0">
+                          <div className="flex gap-1.5 flex-shrink-0">
                             {MATURITY_LEVELS.map((level) => (
                               <button
                                 key={level.value}
                                 onClick={() => updateRating(sub.subKey, level.value)}
-                                className={`w-10 h-10 text-sm font-bold rounded-md transition-all ${
+                                className={`w-9 h-9 text-xs font-bold rounded-lg transition-all ${
                                   ratings[sub.subKey] === level.value
-                                    ? 'text-white shadow-lg ring-2 ring-offset-2 ring-blue-400'
-                                    : 'bg-white border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
+                                    ? 'text-white shadow-md transform scale-105'
+                                    : 'bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-300 text-gray-400 hover:text-gray-600 hover:border-gray-400 hover:from-gray-100 hover:to-gray-200'
                                 }`}
                                 style={ratings[sub.subKey] === level.value ? { backgroundColor: level.color } : {}}
                                 title={level.label}
@@ -317,20 +317,20 @@ export default function Assessment() {
                     <h5 className="font-semibold text-xs text-gray-800 mb-2">{cat.catKey} - {cat.catName}</h5>
                     <div className="space-y-2">
                       {cat.subcategories.map((sub) => (
-                        <div key={sub.subKey} className="flex items-start gap-3 p-3 bg-purple-50 rounded border border-purple-200">
+                        <div key={sub.subKey} className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-all">
                           <div className="flex-1">
-                            <div className="font-medium text-sm text-gray-900">{sub.subKey}</div>
-                            <div className="text-xs text-gray-600 mt-1">{sub.description}</div>
+                            <div className="font-semibold text-sm text-gray-900 tracking-tight">{sub.subKey}</div>
+                            <div className="text-xs text-gray-600 mt-1 leading-tight">{sub.description}</div>
                           </div>
-                          <div className="flex gap-1 flex-shrink-0">
+                          <div className="flex gap-1.5 flex-shrink-0">
                             {MATURITY_LEVELS.map((level) => (
                               <button
                                 key={level.value}
                                 onClick={() => updateRating(sub.subKey, level.value)}
-                                className={`w-10 h-10 text-sm font-bold rounded-md transition-all ${
+                                className={`w-9 h-9 text-xs font-bold rounded-lg transition-all ${
                                   ratings[sub.subKey] === level.value
-                                    ? 'text-white shadow-lg ring-2 ring-offset-2 ring-purple-400'
-                                    : 'bg-white border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
+                                    ? 'text-white shadow-md transform scale-105'
+                                    : 'bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-300 text-gray-400 hover:text-gray-600 hover:border-gray-400 hover:from-gray-100 hover:to-gray-200'
                                 }`}
                                 style={ratings[sub.subKey] === level.value ? { backgroundColor: level.color } : {}}
                                 title={level.label}
