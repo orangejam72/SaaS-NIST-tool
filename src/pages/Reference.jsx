@@ -81,9 +81,9 @@ export default function Reference() {
                             <p className="text-xs text-gray-700 mb-2 leading-relaxed">{sub.description}</p>
 
                             {sub.examples && sub.examples.length > 0 && (
-                              <div className="mb-2 bg-white rounded p-2.5 border border-gray-100">
-                                <div className={`text-xs font-semibold ${colors.text} mb-1.5 flex items-center`}>
-                                  <Eye className="w-3.5 h-3.5 mr-1.5" />
+                              <div className="mb-2 bg-white rounded-lg p-3 border border-gray-200">
+                                <div className={`text-xs font-semibold ${colors.text} mb-2 flex items-center uppercase tracking-wide`}>
+                                  <Eye className="w-4 h-4 mr-1.5" />
                                   Examples:
                                 </div>
                                 <ul className="list-disc list-inside text-xs text-gray-600 space-y-1 ml-1">
@@ -95,9 +95,9 @@ export default function Reference() {
                             )}
 
                             {sub.references && sub.references.length > 0 && (
-                              <div className="bg-white rounded p-2.5 border border-gray-100">
-                                <div className={`text-xs font-semibold ${colors.text} mb-1.5 flex items-center`}>
-                                  <Link className="w-3.5 h-3.5 mr-1.5" />
+                              <div className="bg-white rounded-lg p-3 border border-gray-200">
+                                <div className={`text-xs font-semibold ${colors.text} mb-2 flex items-center uppercase tracking-wide`}>
+                                  <Link className="w-4 h-4 mr-1.5" />
                                   References:
                                 </div>
                                 <div className="flex flex-wrap gap-1.5">
