@@ -96,23 +96,23 @@ export default function Assessment() {
     <div className="space-y-6">
       {/* Dashboard */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-600 hover:shadow-xl transition-shadow">
-          <div className="text-xs text-gray-500 mb-2 font-semibold uppercase tracking-wide">Overall Maturity Score</div>
+        <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-6 border border-blue-200 hover:shadow-xl transition-all">
+          <div className="text-xs text-blue-700 mb-2 font-semibold uppercase tracking-wide">Overall Maturity Score</div>
           <div className="text-4xl font-bold text-gray-900">{overallScore.toFixed(2)} <span className="text-xl text-gray-500">/ 3.00</span></div>
           <div className="mt-3 text-sm text-gray-600">
             {overallScore < 1 ? 'Needs Significant Work' : overallScore < 2 ? 'Developing' : overallScore < 3 ? 'Maturing' : 'Optimized'}
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-600 hover:shadow-xl transition-shadow">
-          <div className="text-xs text-gray-500 mb-2 font-semibold uppercase tracking-wide">Assessment Progress</div>
+        <div className="bg-gradient-to-br from-green-50 to-white rounded-xl shadow-lg p-6 border border-green-200 hover:shadow-xl transition-all">
+          <div className="text-xs text-green-700 mb-2 font-semibold uppercase tracking-wide">Assessment Progress</div>
           <div className="text-4xl font-bold text-gray-900">{completionPercentage}<span className="text-xl text-gray-500">%</span></div>
           <div className="mt-3 text-sm text-gray-600">
             {Object.keys(ratings).length} of {totalSubcategories} subcategories rated
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-600 hover:shadow-xl transition-shadow">
+        <div className="bg-gradient-to-br from-indigo-50 to-white rounded-xl shadow-lg p-6 border border-indigo-200 hover:shadow-xl transition-all">
           <div className="mb-4">
             <label className="block text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2">
               Target Maturity Level
@@ -143,14 +143,14 @@ export default function Assessment() {
       </div>
 
       {/* Framework Selection Tabs */}
-      <div className="bg-white rounded-xl shadow-lg p-6">
+      <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-lg p-6 border border-gray-200">
         <div className="flex gap-3 flex-wrap">
           <button
             onClick={() => setActiveFramework('csf')}
-            className={`px-5 py-3 rounded-md flex items-center gap-2 text-sm font-medium transition-all border-2 ${
+            className={`px-5 py-3 rounded-lg flex items-center gap-2 text-sm font-semibold transition-all ${
               activeFramework === 'csf'
-                ? 'bg-blue-600 text-white border-blue-600'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-blue-400 hover:bg-blue-50'
+                ? 'bg-blue-600 text-white shadow-md'
+                : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700'
             }`}
           >
             <Shield className="w-5 h-5" />
@@ -158,10 +158,10 @@ export default function Assessment() {
           </button>
           <button
             onClick={() => setActiveFramework('privacy')}
-            className={`px-5 py-3 rounded-md flex items-center gap-2 text-sm font-medium transition-all border-2 ${
+            className={`px-5 py-3 rounded-lg flex items-center gap-2 text-sm font-semibold transition-all ${
               activeFramework === 'privacy'
-                ? 'bg-purple-600 text-white border-purple-600'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-purple-400 hover:bg-purple-50'
+                ? 'bg-purple-600 text-white shadow-md'
+                : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-purple-300 hover:bg-purple-50 hover:text-purple-700'
             }`}
           >
             <Lock className="w-5 h-5" />
@@ -169,10 +169,10 @@ export default function Assessment() {
           </button>
           <button
             onClick={() => setActiveFramework('both')}
-            className={`px-5 py-3 rounded-md flex items-center gap-2 text-sm font-medium transition-all border-2 ${
+            className={`px-5 py-3 rounded-lg flex items-center gap-2 text-sm font-semibold transition-all ${
               activeFramework === 'both'
-                ? 'bg-green-600 text-white border-green-600'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-green-400 hover:bg-green-50'
+                ? 'bg-green-600 text-white shadow-md'
+                : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-green-300 hover:bg-green-50 hover:text-green-700'
             }`}
           >
             <BarChart3 className="w-5 h-5" />
@@ -185,10 +185,10 @@ export default function Assessment() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* CSF Radar */}
         {(activeFramework === 'csf' || activeFramework === 'both') && (
-          <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-600">
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-gray-900">
+          <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-6 border border-blue-200">
+            <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-blue-900 uppercase tracking-wide">
               <div className="p-2 bg-blue-100 rounded-lg">
-                <Shield className="w-6 h-6 text-blue-600" />
+                <Shield className="w-5 h-5 text-blue-600" />
               </div>
               CSF 2.0 Maturity by Function
             </h3>
@@ -208,10 +208,10 @@ export default function Assessment() {
 
         {/* Privacy Radar */}
         {(activeFramework === 'privacy' || activeFramework === 'both') && (
-          <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-600">
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-gray-900">
+          <div className="bg-gradient-to-br from-purple-50 to-white rounded-xl shadow-lg p-6 border border-purple-200">
+            <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-purple-900 uppercase tracking-wide">
               <div className="p-2 bg-purple-100 rounded-lg">
-                <Lock className="w-6 h-6 text-purple-600" />
+                <Lock className="w-5 h-5 text-purple-600" />
               </div>
               Privacy Framework Maturity by Function
             </h3>
@@ -232,10 +232,10 @@ export default function Assessment() {
 
       {/* Combined Total Score Chart */}
       {activeFramework === 'both' && (
-        <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-600">
-          <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-gray-900">
+        <div className="bg-gradient-to-br from-green-50 to-white rounded-xl shadow-lg p-6 border border-green-200">
+          <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-green-900 uppercase tracking-wide">
             <div className="p-2 bg-green-100 rounded-lg">
-              <BarChart3 className="w-6 h-6 text-green-600" />
+              <BarChart3 className="w-5 h-5 text-green-600" />
             </div>
             Overall Framework Comparison
           </h3>
@@ -254,8 +254,8 @@ export default function Assessment() {
 
       {/* Assessment Form - CSF */}
       {(activeFramework === 'csf' || activeFramework === 'both') && (
-        <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-600">
-          <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-blue-900">
+        <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-6 border border-blue-200">
+          <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-blue-900 uppercase tracking-wide">
             <Shield className="w-5 h-5 text-blue-600" />
             Rate CSF 2.0 Subcategories
           </h3>
@@ -303,8 +303,8 @@ export default function Assessment() {
 
       {/* Assessment Form - Privacy */}
       {(activeFramework === 'privacy' || activeFramework === 'both') && (
-        <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-600">
-          <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-purple-900">
+        <div className="bg-gradient-to-br from-purple-50 to-white rounded-xl shadow-lg p-6 border border-purple-200">
+          <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-purple-900 uppercase tracking-wide">
             <Lock className="w-5 h-5 text-purple-600" />
             Rate Privacy Framework Subcategories
           </h3>
@@ -351,8 +351,8 @@ export default function Assessment() {
       )}
 
       {/* Legend */}
-      <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-gray-400">
-        <h3 className="text-sm font-bold mb-4 text-gray-900">Maturity Level Guide</h3>
+      <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-lg p-6 border border-gray-200">
+        <h3 className="text-sm font-bold mb-4 text-gray-700 uppercase tracking-wide">Maturity Level Guide</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {MATURITY_LEVELS.map((level) => (
             <div key={level.value} className="flex items-center gap-2">
