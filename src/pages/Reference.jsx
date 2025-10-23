@@ -55,10 +55,10 @@ export default function Reference() {
             {expandedFunctions[func.funcKey] && (
               <div className={`px-5 pb-4 pt-2 space-y-3 ${colors.bg}`}>
                 {func.categories.map((cat) => (
-                  <div key={cat.catKey} className={`border-l-3 ${colors.border} pl-4 bg-white rounded-r-lg p-3 shadow`}>
+                  <div key={cat.catKey} className={`bg-white rounded-lg p-3 border border-gray-200`}>
                     <button
                       onClick={() => toggleCategory(cat.catKey)}
-                      className={`w-full text-left py-2 flex items-center justify-between hover:${colors.bg} rounded px-2 transition-colors`}
+                      className={`w-full text-left py-2 flex items-center justify-between hover:bg-gray-50 rounded px-2 transition-colors`}
                     >
                       <div className="flex-1">
                         <span className={`font-semibold text-xs ${colors.text}`}>{cat.catKey}</span>
