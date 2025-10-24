@@ -1,13 +1,8 @@
-import React, { useState, useMemo } from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Legend, Tooltip } from 'recharts';
-import { ChevronDown, ChevronRight, FileText, Shield, Eye, BookOpen, Layers, Link } from 'lucide-react';
+import React from 'react';
 
 // This is a placeholder - the full NIST CSF and Privacy Framework data would go here
 // Due to size constraints, I'm creating a simplified version
 // You can copy the full data structure from your original code
-
-const FULL_CSF_REFERENCE = [];
-const FULL_PRIVACY_CORE_REFERENCE = [];
 
 export default function OriginalAssessment() {
   return (
