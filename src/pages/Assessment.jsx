@@ -96,31 +96,31 @@ export default function Assessment() {
     <div className="space-y-6">
       {/* Dashboard */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-6 border border-blue-200 hover:shadow-xl transition-all">
-          <div className="text-xs text-blue-700 mb-2 font-semibold uppercase tracking-wide">Overall Maturity Score</div>
-          <div className="text-4xl font-bold text-gray-900">{overallScore.toFixed(2)} <span className="text-xl text-gray-500">/ 3.00</span></div>
-          <div className="mt-3 text-sm text-gray-600">
+        <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl shadow-blue-500/10 p-6 border border-slate-700 hover:shadow-blue-500/20 transition-all">
+          <div className="text-xs text-cyan-400 mb-2 font-semibold uppercase tracking-wide">Overall Maturity Score</div>
+          <div className="text-4xl font-bold text-white">{overallScore.toFixed(2)} <span className="text-xl text-slate-400">/ 3.00</span></div>
+          <div className="mt-3 text-sm text-slate-300">
             {overallScore < 1 ? 'Needs Significant Work' : overallScore < 2 ? 'Developing' : overallScore < 3 ? 'Maturing' : 'Optimized'}
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-green-50 to-white rounded-xl shadow-lg p-6 border border-green-200 hover:shadow-xl transition-all">
-          <div className="text-xs text-green-700 mb-2 font-semibold uppercase tracking-wide">Assessment Progress</div>
-          <div className="text-4xl font-bold text-gray-900">{completionPercentage}<span className="text-xl text-gray-500">%</span></div>
-          <div className="mt-3 text-sm text-gray-600">
+        <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl shadow-green-500/10 p-6 border border-slate-700 hover:shadow-green-500/20 transition-all">
+          <div className="text-xs text-green-400 mb-2 font-semibold uppercase tracking-wide">Assessment Progress</div>
+          <div className="text-4xl font-bold text-white">{completionPercentage}<span className="text-xl text-slate-400">%</span></div>
+          <div className="mt-3 text-sm text-slate-300">
             {Object.keys(ratings).length} of {totalSubcategories} subcategories rated
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-indigo-50 to-white rounded-xl shadow-lg p-6 border border-indigo-200 hover:shadow-xl transition-all">
+        <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl shadow-purple-500/10 p-6 border border-slate-700 hover:shadow-purple-500/20 transition-all">
           <div className="mb-4">
-            <label className="block text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2">
+            <label className="block text-xs text-purple-400 font-semibold uppercase tracking-wide mb-2">
               Target Maturity Level
             </label>
             <select
               value={targetLevel}
               onChange={(e) => setTargetLevel(Number(e.target.value))}
-              className="w-full px-3 py-2 border-2 border-gray-300 rounded-md text-sm font-medium text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+              className="w-full px-3 py-2 bg-slate-950 border-2 border-slate-600 rounded-lg text-sm font-medium text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all"
             >
               {MATURITY_LEVELS.map((level) => (
                 <option key={level.value} value={level.value}>
@@ -130,11 +130,11 @@ export default function Assessment() {
             </select>
           </div>
           <div className="flex flex-col gap-3">
-            <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
+            <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg text-sm font-semibold hover:from-blue-700 hover:to-cyan-600 shadow-lg shadow-blue-500/30 transition-all">
               <Save className="w-4 h-4" />
               Save Assessment
             </button>
-            <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-700 text-white rounded-md text-sm font-medium hover:bg-gray-800 transition-colors">
+            <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-slate-700 text-white rounded-lg text-sm font-semibold hover:bg-slate-600 border border-slate-600 transition-all">
               <Download className="w-4 h-4" />
               Export Report
             </button>
@@ -143,14 +143,14 @@ export default function Assessment() {
       </div>
 
       {/* Framework Selection Tabs */}
-      <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-lg p-6 border border-gray-200">
+      <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-6 border border-slate-700">
         <div className="flex gap-3 flex-wrap">
           <button
             onClick={() => setActiveFramework('csf')}
             className={`px-5 py-3 rounded-lg flex items-center gap-2 text-sm font-semibold transition-all ${
               activeFramework === 'csf'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700'
+                ? 'bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30'
+                : 'bg-slate-700 text-slate-300 border-2 border-slate-600 hover:border-cyan-500 hover:bg-slate-600 hover:text-white'
             }`}
           >
             <Shield className="w-5 h-5" />
@@ -160,8 +160,8 @@ export default function Assessment() {
             onClick={() => setActiveFramework('privacy')}
             className={`px-5 py-3 rounded-lg flex items-center gap-2 text-sm font-semibold transition-all ${
               activeFramework === 'privacy'
-                ? 'bg-purple-600 text-white shadow-md'
-                : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-purple-300 hover:bg-purple-50 hover:text-purple-700'
+                ? 'bg-gradient-to-br from-purple-600 to-pink-500 text-white shadow-lg shadow-purple-500/30'
+                : 'bg-slate-700 text-slate-300 border-2 border-slate-600 hover:border-purple-500 hover:bg-slate-600 hover:text-white'
             }`}
           >
             <Lock className="w-5 h-5" />
@@ -171,8 +171,8 @@ export default function Assessment() {
             onClick={() => setActiveFramework('both')}
             className={`px-5 py-3 rounded-lg flex items-center gap-2 text-sm font-semibold transition-all ${
               activeFramework === 'both'
-                ? 'bg-green-600 text-white shadow-md'
-                : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-green-300 hover:bg-green-50 hover:text-green-700'
+                ? 'bg-gradient-to-br from-green-600 to-emerald-500 text-white shadow-lg shadow-green-500/30'
+                : 'bg-slate-700 text-slate-300 border-2 border-slate-600 hover:border-green-500 hover:bg-slate-600 hover:text-white'
             }`}
           >
             <BarChart3 className="w-5 h-5" />
@@ -185,10 +185,10 @@ export default function Assessment() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* CSF Radar */}
         {(activeFramework === 'csf' || activeFramework === 'both') && (
-          <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-6 border border-blue-200">
-            <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-blue-900 uppercase tracking-wide">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <Shield className="w-5 h-5 text-blue-600" />
+          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl shadow-blue-500/10 p-6 border border-slate-700">
+            <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-cyan-400 uppercase tracking-wide">
+              <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg shadow-lg shadow-blue-500/30">
+                <Shield className="w-5 h-5 text-white" />
               </div>
               CSF 2.0 Maturity by Function
             </h3>
